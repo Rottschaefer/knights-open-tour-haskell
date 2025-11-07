@@ -1,0 +1,1 @@
+# knights-open-tour-haskell
