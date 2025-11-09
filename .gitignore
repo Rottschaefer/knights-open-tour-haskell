@@ -1,0 +1,32 @@
+# Arquivos de compilação e executáveis
+*
+!*.*
+!/
+
+# Exceções para arquivos importantes sem extensão
+!Makefile
+!README
+!LICENSE
+
+# Arquivos de compilação Haskell
+*.hi
+*.o
+*.dyn_hi
+*.dyn_o
+*.prof
+*.tix
+*.hie*
+
+# Cabal / Stack build artefacts
+dist/
+dist-newstyle/
+.stack-work/
+.cabal-sandbox/
+cabal.sandbox.config
+
+# GHC environment files
+.ghc.environment.*
+
+# Haskell Language Server / IDE caches
+.hls/
+.hie/
