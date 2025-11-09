@@ -2,7 +2,6 @@
 import Data.Array           -- Para trabalhar com arrays imutáveis (acesso O(1))
 import Data.List (sortBy)   -- Para ordenar listas
 import Data.Ord (comparing) -- Para comparar elementos ao ordenar
-import Debug.Trace          -- Para debug (imprimir mensagens durante execução)
 
 {- MAIN: Ponto de entrada do programa
    Lê o arquivo exe.txt, processa cada linha e imprime o resultado -}
@@ -51,7 +50,7 @@ resolverPasseio [n, m, x, y]
    Retorna True se encontrou caminho aberto, False caso contrário -}
 backtrack :: Int -> Int ->  Int -> Int ->  (Int,  Int) -> Array (Int, Int) Bool -> Int ->  Bool 
 backtrack n m x y posInicial tabuleiro iteracoes
-    | (iteracoes == (n*m) && naoVoltaProInicio (x, y) posInicial) = True
+    | (iteracoes == (n*m-1) && naoVoltaProInicio (x, y) posInicial) = True
         -- Visitou todas as casas E é caminho aberto
         -- (última posição NÃO pode alcançar a primeira)
     | tabuleiro ! (x,y) = False
@@ -59,12 +58,10 @@ backtrack n m x y posInicial tabuleiro iteracoes
     | otherwise = 
         let new_tabuleiro = visitaPosicao tabuleiro (x, y)
             -- Marca posição atual como visitada (cria novo array)
-            resultado = trace ("→ Tentando " ++ show (x,y) ++ " (iter=" ++ show iteracoes ++ ")") $ 
-                        any (\(new_x, new_y) -> backtrack n m new_x new_y posInicial new_tabuleiro (iteracoes + 1)) $ 
-                        movimentosValidos n m new_tabuleiro (x,y)
+        in any (\(new_x, new_y) -> backtrack n m new_x new_y posInicial new_tabuleiro (iteracoes + 1)) $ 
+           movimentosValidos n m new_tabuleiro (x,y)
             -- any: para na primeira recursão que retornar True
             -- testa cada movimento válido recursivamente
-        in resultado
 
 -- Verifica se NÃO volta para o início (caminho aberto)
 {- VERIFICAÇÃO DE CAMINHO ABERTO
