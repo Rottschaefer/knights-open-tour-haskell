@@ -1,0 +1,15 @@
+Relatório do trabalho "Implementação em Linguagem Funcional":
+
+Participantes:
+ - Alessandro Felipe Ferreira Filho
+ - Eduardo Rottschaefer Oliveira
+ 
+ Resumo: 
+   Em breve resumo, o trabalho por completo foi feito com total participação de ambos os membros. Entretando, vale ressaltar as áreas de atuação em que cada participante se destacou na construção do programa.
+   
+   - Pesquisa: Alessandro e Eduardo
+   - Pseudocódigo: Eduardo
+   - Código base em Haskell: Eduardo
+   - Heurística: Alessandro
+   - Testes base: Alessandro e Eduardo 
+   - Manutenção/Otimização: Alessandro, Eduardo
